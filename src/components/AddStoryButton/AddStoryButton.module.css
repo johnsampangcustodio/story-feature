@@ -1,0 +1,50 @@
+/* Shared styles for story thumbnails */
+:root {
+  --story-size: 66px;
+  --story-border-color: #c7c7c7;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0; /* Prevents shrinking in the flex container */
+  margin: 8px;
+}
+
+.storyButton {
+  width: var(--story-size);
+  height: var(--story-size);
+  border-radius: 50%;
+  border: 1px dashed var(--story-border-color);
+  background-color: #fafafa;
+  cursor: pointer;
+  padding: 0; /* Remove default padding */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.storyButton:hover {
+  background-color: #f0f0f0;
+}
+
+.plusIconWrapper {
+  width: var(--story-size);
+  height: var(--story-size);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* This creates the blue ring effect */
+  border: 2px solid white;
+  outline: 1px solid #0095f6;
+  background-color: white;
+}
+
+.label {
+  font-size: 12px;
+  color: #262626;
+  margin-top: 4px;
+}
