@@ -2,7 +2,22 @@ import React, { useState } from 'react';
 import { useStoryStorage } from './hooks/useStoryStorage';
 import StoryBar from './components/StoryBar/StoryBar';
 import StoryViewer from './components/StoryViewer/StoryViewer';
-import './App.css'; // We'll add a little style here
+import './App.css';
+
+// 1. Import our new Theme components
+import { ThemeProvider } from './context/ThemeContext';
+import ThemeToggle from './components/ThemeToggle/ThemeToggle';
+
+/**
+ * Root component wrapped in ThemeProvider
+ */
+function AppWrapper() {
+  return (
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
+  );
+}
 
 function App() {
   // 1. Get stories and the addStory function from our custom hook
@@ -23,7 +38,11 @@ function App() {
   return (
     <div className="app-container">
       <header className="app-header">
-        <h1>Stories</h1>
+        <h1>Client-Side Stories</h1>
+        {/* 3. Add the toggle button */}
+        <div className="header-controls">
+          <ThemeToggle />
+        </div>
       </header>
 
       {/* The StoryBar component:
@@ -40,7 +59,7 @@ function App() {
       <main className="app-content">
         <p>This is the main content area of the application.</p>
         <p>Upload an image using the "+" button to create a story!</p>
-      </main>
+      </amain>
 
       {/* Conditionally render the StoryViewer:
         - Only show it if `activeStoryIndex` is a number (not null).
@@ -56,4 +75,5 @@ function App() {
   );
 }
 
-export default App;
+// 4. Export the wrapped component
+export default AppWrapper;

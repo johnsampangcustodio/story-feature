@@ -1,0 +1,36 @@
+.toggleButton {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  color: var(--icon-color);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  position: relative;
+  overflow: hidden; /* Hide the icon that is not visible */
+  transition: background-color var(--transition-speed) ease,
+    border-color var(--transition-speed) ease;
+}
+
+.toggleButton:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.iconWrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(10px) rotate(30deg);
+}
+
+.iconWrapper.visible {
+  opacity: 1;
+  transform: translateY(0) rotate(0deg);
+}

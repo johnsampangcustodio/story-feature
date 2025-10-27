@@ -1,4 +1,58 @@
-/* Basic reset and global styles */
+/* 1. Define Light Mode (default) colors */
+:root {
+  --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+
+  /* Colors */
+  --bg-primary: #fafafa;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f0f0f0;
+  --border-primary: #dbdbdb;
+  --border-dashed: #c7c7c7;
+
+  --text-primary: #262626;
+  --text-secondary: #555;
+  --text-link: #0095f6;
+
+  --story-ring: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  --story-ring-add: #0095f6;
+
+  --modal-backdrop: rgba(255, 255, 255, 0.8);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --icon-color: #262626;
+
+  /* Transitions */
+  --transition-speed: 0.3s;
+}
+
+/* 2. Define Dark Mode colors */
+[data-theme='dark'] {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-tertiary: #2a2a2a;
+  --border-primary: #363636;
+  --border-dashed: #444;
+
+  --text-primary: #e0e0e0;
+  --text-secondary: #a8a8a8;
+  --text-link: #0095f6; /* Link color can stay the same */
+
+  /* Story ring is fine, but "add" button needs contrast */
+  --story-ring-add: #0095f6;
+
+  --modal-backdrop: rgba(0, 0, 0, 0.85);
+  --shadow-color: rgba(255, 255, 255, 0.1);
+  --icon-color: #e0e0e0;
+}
+
+/* 3. Basic reset and global styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,7 +60,10 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
-    Arial, sans-serif;
-  background-color: #fafafa;
+  font-family: var(--font-primary);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  /* Add transition for smooth theme changes */
+  transition: background-color var(--transition-speed) ease,
+    color var(--transition-speed) ease;
 }
